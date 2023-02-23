@@ -6,6 +6,15 @@ import FormGroup from "../components/form-group";
 
 class Login extends React.Component{
 
+    state = {
+        email : '',
+        senha : ''
+    }
+
+    entrar = () => {
+        console.log();
+    }
+
     render() {
         return(
             <div className="container">
@@ -19,6 +28,8 @@ class Login extends React.Component{
                                             <fieldset>
                                                 <FormGroup label='Email: *' htmlFor='exampleInputEmail1'>
                                                     <input type="email" 
+                                                           value={this.state.email}
+                                                           onChange={e => this.setState({email: e.target.value})}
                                                            className="form-control" 
                                                            id="exampleInputEmail1" 
                                                            aria-describedby="emailHelp" 
@@ -28,11 +39,16 @@ class Login extends React.Component{
 
                                                 <FormGroup label='Senha: *' htmlFor='exampleInputPassword1'>
                                                     <input type="password" 
+                                                           value={this.state.senha}
+                                                           onChange={e => this.setState({senha: e.target.value})}
                                                            className="form-control" 
                                                            id="exampleInputPassword1" 
                                                            placeholder="Password"
                                                     />
                                                 </FormGroup>
+
+                                                <button onclick={this.entrar} type="button" className="btn btn-success">Entrar</button>
+                                                <button onclick="window.location.href='usuarios.html'" type="button" className="btn btn-danger">Cadastrar</button>
                                             </fieldset>
                                         </div>
                                     </div>
